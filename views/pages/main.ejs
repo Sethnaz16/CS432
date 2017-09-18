@@ -22,7 +22,7 @@
               </thead>
               <tbody>
 
-                  <% data.sources.forEach(function(item){ %>
+                  <% jsdata.sources.forEach(function(item){ %>
                         <tr>
                             <td><%= item.name %></td>
                             <td><%= item.category %></td>
@@ -41,7 +41,7 @@
               <select class="form-control" id="sel2" onchange="changeLink()">
                   <% 
                   var catSet = new Set();
-                  data.sources.forEach(function(item){
+                  jsdata.sources.forEach(function(item){
                       if(catSet == null) {
                           catSet.add(item.category);
                       } else {
