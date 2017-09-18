@@ -11,7 +11,7 @@
 <div class="container">
   <div class="row">
       <div class="col-md-8">
-          <h2>Most Popular News Channel</h2>
+          <h2>Category: <%= category %></h2>
           <table class="table table-striped">
               <thead>
                   <tr>
@@ -22,7 +22,11 @@
               </thead>
               <tbody>
 
-                  <% data.sources.forEach(function(item){ %>
+                  <% data.sources.forEach(function(item){ 
+                      if(item.category != category){
+                          return;
+                      }
+                      %>
                         <tr>
                             <td><%= item.name %></td>
                             <td><%= item.category %></td>
@@ -38,7 +42,7 @@
           <form>
             <div class="selectpicker form-group">
               <label for="sel1">Select list (select one):</label>
-              <select class="form-control" id="sel2" onchange="changeLink()">
+              <select class="form-control" id="sel1" onchange="changeLink()">
                   <% 
                   var catSet = new Set();
                   data.sources.forEach(function(item){
@@ -51,19 +55,27 @@
                               catSet.add(item.category);
                           }
                       }
+                      if(item.category == category){
                    %>
+                    <option selected="selected" value="<%= item.category %>"><%= item.category %></option>
+                  <% 
+                  } else {
+                  %>
                     <option value="<%= item.category %>"><%= item.category %></option>
-                  <% } )%>
+                  <%
+                  }
+                  
+                  } )%>
               </select>
             </div>
             <script>
                 function changeLink(){
-                  var sel = document.getElementById("sel2").value;
-                  document.getElementById("link2").href = "news-sources/" + sel;
+                  var sel = document.getElementById("sel1").value;
+                  document.getElementById("link1").href = sel;
                 };
                 
             </script>
-            <a id="link2" href="" class="btn btn-danger">Filter</a>
+            <a id="link1" href="" class="btn btn-danger">Filter</a>
         </form>
       </div>
               
