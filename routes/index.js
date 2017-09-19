@@ -31,9 +31,13 @@ router.get('/news-sources/:category/:id', function(req, res){
     })
 });
 
+/*
 // POST /login gets urlencoded bodies
 router.post('/add', urlencodedParser, function (req, res) {
   res.render('pages/add');
 })
+
+*/
+
 
 module.exports = router;
