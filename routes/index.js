@@ -1,31 +1,39 @@
 var express = require('express');
 var router = express.Router();
+var bodyParser = require('body-parser');
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 /* Homepage */
-router.get('/', function(request, response) {
-  response.render('pages/index');
+router.get('/', function(req, res) {
+  res.render('pages/index');
 });
 
 /* All News Page */
-router.get('/news-sources', function(request, response){
-    response.render('pages/main', {
+router.get('/news-sources', function(req, res){
+    res.render('pages/main', {
         counter: 0
     });
 });
 
 /* Category page */
-router.get('/news-sources/:category', function(request, response){
-    response.render('pages/cat-view', {
+router.get('/news-sources/:category', function(req, res){
+    res.render('pages/cat-view', {
         counter: 0,
-        category: request.params.category
+        category: req.params.category
     });
 });
 
 /* Individual news page */
-router.get('/news-sources/:category/:id', function(request, response){
-    response.render('pages/node-news', {
-        id: request.params.id
+router.get('/news-sources/:category/:id', function(req, res){
+    res.render('pages/node-news', {
+        id: req.params.id
     })
 });
+
+// POST /login gets urlencoded bodies
+router.post('/add', urlencodedParser, function (req, res) {
+  res.render('pages/add');
+})
 
 module.exports = router;

@@ -26,7 +26,9 @@
                         <tr>
                             <td><%= item.name %></td>
                             <td><%= item.category %></td>
-                            <td><a href="/news-sources/<%= item.category %>/<%= counter %>" class="btn btn-primary">View Details</a></td>
+                            <td>
+                                <a href="/news-sources/<%= item.category %>/<%= counter %>" class="btn btn-primary">View</a>
+                            </td>
                         </tr>
                   <% counter++ }) %>
 
@@ -34,7 +36,8 @@
           </table>
       </div>
       <div class="col-md-4">
-          <h2>Filter</h2>
+          <div class="row">
+              <h2>Filter</h2>
           <form>
             <div class="selectpicker form-group">
               <label for="sel1">Select list (select one):</label>
@@ -65,6 +68,11 @@
             </script>
             <a id="link2" href="" class="btn btn-danger">Filter</a>
         </form>
+          </div>
+          <div class="row">
+              <% include ../partials/add-form.ejs %>
+          </div>
+          
       </div>
               
       
