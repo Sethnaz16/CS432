@@ -3,8 +3,8 @@ var app = express();
 var routes = require('./routes/index');
 app.locals.global;
 var fetch = require('node-fetch');
-var bodyParser = require('body-parser');
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+// var bodyParser = require('body-parser');
+// var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 fetch('https://newsapi.org/v1/sources?language=en')
 .then(function(res) {
@@ -59,8 +59,8 @@ app.get('/add', function(req, res){
     res.render('pages/add');
 });
 
-app.put('/update/cat/0',  urlencodedParser, function(req, res){
-    res.redirect('pages/node-news');
+app.put('/create',  urlencodedParser, function(req, res){
+    res.render('pages/node-news');
 });
 
 
