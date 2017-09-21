@@ -19,7 +19,7 @@ console.log(global);
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 app.use('/', routes);
 //const url = 'https://newsapi.org/v1/sources?language=en';
 //fetchdata.fetcher(url, app); // Send url and instance of app to microservice
@@ -59,7 +59,7 @@ app.get('/add', function(req, res){
     res.render('pages/add');
 });
 
-app.put('/create',  urlencodedParser, function(req, res){
+app.put('/create', function(req, res){
     res.render('pages/node-news');
 });
 
