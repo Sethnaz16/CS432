@@ -17,7 +17,7 @@
     <select multiple class="form-control" id="category">
       <% 
       var catSet = new Set();
-      jsdata.sources.forEach(function(item){
+      global.sources.forEach(function(item){
           if(catSet == null) {
               catSet.add(item.category);
           } else {
@@ -43,7 +43,7 @@
     <select class="form-control" id="country">
        <% 
       var catSet = new Set();
-      jsdata.sources.forEach(function(item){
+      global.sources.forEach(function(item){
           if(catSet == null) {
               catSet.add(item.country);
           } else {

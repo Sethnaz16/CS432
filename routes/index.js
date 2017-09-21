@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
-// var bodyParser = require('body-parser');
-
-// var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 /* Homepage */
 router.get('/', function(req, res) {
@@ -29,6 +28,14 @@ router.get('/news-sources/:category/:id', function(req, res){
     res.render('pages/node-news', {
         id: req.params.id
     })
+});
+
+router.get('/add', function(req, res){
+    res.render('pages/add');
+});
+
+router.put('news-sources/:cat/:id',  urlencodedParser, function(req, res){
+    res.send('pages/update');
 });
 
 /*

@@ -22,7 +22,7 @@
               </thead>
               <tbody>
 
-                  <% jsdata.sources.forEach(function(item){ %>
+                  <% global.sources.forEach(function(item){ %>
                         <tr>
                             <td><%= item.name %></td>
                             <td><%= item.category %></td>
@@ -44,7 +44,7 @@
               <select class="form-control" id="sel2" onchange="changeLink()">
                   <% 
                   var catSet = new Set();
-                  jsdata.sources.forEach(function(item){
+                  global.sources.forEach(function(item){
                       if(catSet == null) {
                           catSet.add(item.category);
                       } else {
@@ -69,13 +69,12 @@
             <a id="link2" href="" class="btn btn-danger">Filter</a>
         </form>
           </div>
-          <!--
+        
           <div class="row">
-              <% // include ../partials/add-form.ejs %>
+              <% include ../partials/add-form.ejs %>
           </div>
-          -->
+        
       </div>
-              
       
   </div> <!-- row -->
    
